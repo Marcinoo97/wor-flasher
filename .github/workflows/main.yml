@@ -35,7 +35,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           fallocate -l 10G test.img
-          curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
-          mkdir mnt
-          mount-img test.img mnt
+          losetup --partscan /dev/loop0 test.img
           ./install-wor.sh
