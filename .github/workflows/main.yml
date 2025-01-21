@@ -35,5 +35,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           fallocate -l 10G test.img
-          losetup --partscan /dev/loop0 test.img
+          sudo losetup --partscan /dev/loop0 test.img
           ./install-wor.sh
