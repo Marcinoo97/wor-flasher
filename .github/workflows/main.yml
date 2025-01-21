@@ -37,5 +37,6 @@ jobs:
           fallocate -l 10G test.img
           sudo losetup --partscan /dev/loop0 test.img
           touch ./no-update
+          mkdir wor-flasher
           touch /wor-flasher/no-update
           ./install-wor.sh
