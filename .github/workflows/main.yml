@@ -36,5 +36,6 @@ jobs:
         run: |
           fallocate -l 10G test.img
           curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
+          mkdir mnt
           mount-img test.img mnt
           ./install-wor.sh
