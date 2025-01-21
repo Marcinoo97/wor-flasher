@@ -29,7 +29,7 @@ jobs:
       - name: get packeges before
         run: |
           sudo apt-get update
-          sudo apt-get install yad aria2 cabextract wimtools chntpw genisoimage udfclient exfat-fuse exfatprogs wget -y
+          sudo apt-get install yad aria2 cabextract wimtools udftools chntpw genisoimage udfclient exfat-fuse exfatprogs wget -y
 
      # Runs a set of commands using the runners shell
       - name: Prepare storage
@@ -39,9 +39,21 @@ jobs:
           touch ./no-update
           
      # Runs a set of commands using the runners shell
-      - name: test pi4 win10
+      - name: test pi4 win10-19045.3803
         run: |
-          CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=4 WIN_LANG=en-us BID=22631.2861 ./install-wor.sh
+          CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=4 WIN_LANG=en-us BID=19045.3803 ./install-wor.sh
+          echo "?"
+
+               # Runs a set of commands using the runners shell
+      - name: test pi5 win11-22631.2861
+        run: |
+          CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=5 WIN_LANG=en-us BID=22631.2861 ./install-wor.sh
+          echo "?"
+
+                 # Runs a set of commands using the runners shell
+      - name: test pi5 win11-26000.2033
+        run: |
+          CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=5 WIN_LANG=en-us BID=26000.2033 ./install-wor.sh
           echo "?"
 
           
