@@ -26,15 +26,22 @@ jobs:
       - uses: actions/checkout@v4
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: get packeges before
         run: |
           sudo apt-get update
-          sudo apt-get install yad aria2 cabextract wimtools chntpw genisoimage exfat-fuse exfatprogs wget -y
+          sudo apt-get install yad aria2 cabextract wimtools chntpw genisoimage udfclient exfat-fuse exfatprogs wget -y
 
      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Prepare storage
         run: |
           fallocate -l 10G test.img
           sudo losetup --partscan /dev/loop0 test.img
           touch ./no-update
-          ./install-wor.sh
+          
+     # Runs a set of commands using the runners shell
+      - name: test pi4 win10
+        run: |
+          DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=4 WIN_LANG=en-us BID=22631.2861 ./install-wor.sh
+          echo "?"
+
+          
