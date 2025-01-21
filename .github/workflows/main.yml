@@ -41,7 +41,7 @@ jobs:
      # Runs a set of commands using the runners shell
       - name: test pi4 win10
         run: |
-          DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=4 WIN_LANG=en-us BID=22631.2861 ./install-wor.sh
+          CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=4 WIN_LANG=en-us BID=22631.2861 ./install-wor.sh
           echo "?"
 
           
