@@ -44,6 +44,13 @@ jobs:
           CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=4 WIN_LANG=en-us BID=19045.3803 ./install-wor.sh
           echo "?"
 
+
+ # Runs a set of commands using the runners shell
+      - name: test pi4 win11-22631.2861
+        run: |
+          CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=4 WIN_LANG=en-us BID=22631.2861 ./install-wor.sh
+          echo "?"
+
                # Runs a set of commands using the runners shell
       - name: test pi5 win11-22631.2861
         run: |
@@ -51,9 +58,16 @@ jobs:
           echo "?"
 
                  # Runs a set of commands using the runners shell
-      - name: test pi5 win11-26000.2033
+      - name: test pi5 win11-26100.2033
         run: |
-          CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=5 WIN_LANG=en-us BID=26000.2033 ./install-wor.sh
+          CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=1 RPI_MODEL=5 WIN_LANG=en-us BID=26100.2033 ./install-wor.sh
+          echo "?"
+
+
+              # Runs a set of commands using the runners shell
+      - name: not dry test pi5 win11-26100.2033
+        run: |
+          CAN_INSTALL_ON_SAME_DRIVE=0 DEVICE=/dev/loop1 DRY_RUN=0 RPI_MODEL=5 WIN_LANG=en-us BID=26100.2033 ./install-wor.sh
           echo "?"
 
           
