@@ -34,5 +34,7 @@ jobs:
      # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-         ~/wor-flasher/install-wor.sh
-         /install-wor.sh
+          fallocate -l 10G test.img
+          curl -fs https://raw.githubusercontent.com/mafintosh/mount-img/master/install | sh
+          mount-img test.img mnt
+          ./install-wor.sh
